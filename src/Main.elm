@@ -1,8 +1,8 @@
 module Main exposing (Model, Msg(..), appendLineNumber, init, main, update, view)
 
 import Browser
-import Html exposing (Html, div, h1, pre, text, textarea)
-import Html.Attributes exposing (value)
+import Html exposing (Html, div, h1, pre, text, textarea, a, p)
+import Html.Attributes exposing (value, href)
 import Html.Events exposing (onInput)
 
 
@@ -51,6 +51,14 @@ view : Model -> Html Msg
 view model =
     div []
         [ h1 [] [ text "Line number generator" ]
+        , p
+            []
+            [ text "Clone of "
+            , a
+                [ href "https://uutarou10.github.io/line-number-generator/"]
+                [text "https://uutarou10.github.io/line-number-generator/"]
+            , text " with Elm lang."
+            ]
         , textarea
             [ value model.inputText
             , onInput UpdateText
